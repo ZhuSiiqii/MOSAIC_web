@@ -1,0 +1,35 @@
+{
+  "source": "detailed_livingroom_retry8.blend",
+  "removed": [
+    "ceiling_01",
+    "central_ceiling_light_01_light",
+    "floor_lamp_01_light",
+    "VRSceneCamera",
+    "VRSceneKey",
+    "VRSceneKey.001",
+    "wall_west_01",
+    "west_wall_poster_01"
+  ],
+  "stages": {
+    "structure": {
+      "bytes": 651512,
+      "meshes": 4,
+      "faces": 111
+    },
+    "attached": {
+      "bytes": 2064320,
+      "meshes": 6,
+      "faces": 32110
+    },
+    "primary": {
+      "bytes": 8837936,
+      "meshes": 17,
+      "faces": 208105
+    },
+    "supported": {
+      "bytes": 11621336,
+      "meshes": 29,
+      "faces": 259099
+    }
+  }
+}
