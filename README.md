@@ -20,21 +20,23 @@ python3 -m http.server 8000
 - `editing.js`：四场景、三编辑方式及前后对比拖拽；`editScenes` 存放场景标识和指令。
 - `assets/edits/`：24 张连续编辑原图的独立副本，保留原始 PNG 画质。
 - `scene-viewer.js`：真实 3D 场景、自动旋转、暂停/恢复、重置视角及阶段切换。
+- `result-scenes.js`：Text / Image 生成结果的自动旋转与独立暂停/恢复按钮；结果场景不响应拖拽、平移或缩放。
 - `assets/scenes/`：四阶段完整场景 GLB（内嵌贴图）、透明背景预览图和导出统计。
+- `assets/results/`：Text / Image 生成结果 GLB、三张 Image 输入原图及导出统计；全部资源独立打包，不读取电脑绝对路径。
 - `assets/media/`：网页优化后的 Demo 视频及封面、Pipeline 图和 VR 后处理图。
 - `vendor/model-viewer/`：本地打包的 model-viewer 4.3.1，包含上游许可证；运行时无需 CDN。
 - `assets/teaser.jpg`：来自项目 `docs/imgs/teaser.jpg` 的独立副本。
 - `assets/favicon.svg`：简单的拼块图标。
 
-Demo、Pipeline 和 VR 后处理模块已接入完整素材；Text-to-Scene / Image-to-Scene 结果目前仍为明确标注的占位内容。连续编辑模块已接入完整图片，3D 模块已接入用户提供的 Blender 场景。Text-to-Scene 的三条 prompt 为说明性示例，并非已验证的实验结果。
+Demo、Pipeline、VR 后处理、Text-to-Scene 和 Image-to-Scene 均已接入完整素材。Text-to-Scene 当前包含 5 个真实 3D 结果，以两列排列并按 Atmosphere、Detailed、Functional 命名；Image-to-Scene 包含 3 行真实对比，每行左侧为输入原图、右侧为对应 3D 场景。连续编辑模块已接入完整图片，Overview 3D 模块已接入用户提供的 Blender 场景。
 
 效率模块仅比较端到端总时间：Text 输入为 MOSAIC 4:55、Codex 13:50、SceneSmith 83:54；Image 输入为 MOSAIC 7:57、Codex 14:16，SceneSmith 未报告。页面不展示 Layout 与 Asset 的分项时间。
 
 替换内容时：
 
 1. Demo：替换 `assets/media/demo.mp4` 和 `assets/media/demo-poster.jpg`。
-2. Text-to-Scene：替换各 `.result-placeholder` 为对应真实图片或视频，同时更新 prompt 并移除占位标记。
-3. Image-to-Scene：将两个 `.image-placeholder` 分别替换为源图和生成结果。
+2. Text-to-Scene：替换 `assets/results/text-*.glb`，并同步更新 `index.html` 中的标题与 prompt。
+3. Image-to-Scene：成对替换 `assets/results/image-*.glb` 和 `assets/results/image-*-source.png`。
 4. Pipeline 与后处理：替换 `assets/media/pipeline.png` 和 `assets/media/post.png`。
 5. 3D 场景：替换 `assets/scenes/livingroom-{stage}.glb` 和预览图；调整 `scene-viewer.js` 及 `index.html` 中的默认相机视角。
 6. 作者与论文：在封面预留注释处填写确认的作者及机构，按需添加论文按钮；用正式 BibTeX 替换 `#bibtex`，同时移除草稿说明。
@@ -66,6 +68,20 @@ method: sketch / bbox / language
 查看器使用原有四阶段完整资产场景，支持旋转、缩放和平移；已移除 Layout 示意切换、层次列表、流程文字和重复的效率数字，完整效率比较仍在 `#efficiency`。
 
 Pipeline、Efficiency 和 Post-processing 紧随 Overview，分别作为第 2、3、4 个内容模块。
+
+## Text / Image 生成结果
+
+Text-to-Scene 每行展示两个结果，按目录前缀排序：Atmosphere、Detailed、Functional。Image-to-Scene 共三行，分别为 Bedroom、Living room、Meeting room，每行左侧展示 1254×1254 输入原图，右侧展示对应 3D 场景。
+
+所有结果场景默认缓慢旋转，各自提供 Pause / Resume rotation 按钮；不提供拖拽、平移、缩放或层次切换。系统开启“减少动态效果”时默认停止旋转。为便于观察室内，网页导出统一移除顶面和一侧墙，并将贴图嵌入 GLB。当前单个文件约 8–21 MB，均低于 GitHub 单文件限制。
+
+源文件来自网站仓库同级的 `scene/text/` 和 `scene/img/`。重新导出命令如下，脚本不会覆盖源 `.blend`：
+
+```bash
+/Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup --disable-autoexec --python tools/export_result_scenes.py
+```
+
+`scene/text/atmosphere_livingroom/` 当前只有 `input.txt`，没有 `.blend`，因此该类别尚未显示；其余 5 个 Text 场景和 3 个 Image 场景已完整接入。
 
 ## 3D 场景展示
 

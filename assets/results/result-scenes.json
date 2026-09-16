@@ -1,0 +1,105 @@
+{
+  "text-atmosphere-bedroom": {
+    "source": "text/atmosphere_bedroom/text_atmosphere.blend",
+    "bytes": 7800096,
+    "meshes": 23,
+    "faces_before": 241586,
+    "faces_after": 71899,
+    "meshes_reduced": 11,
+    "images_resized": 27,
+    "removed_for_cutaway": [
+      "wall_west_01"
+    ]
+  },
+  "text-detailed-cafe": {
+    "source": "text/detailed_cafe/detailed_cafe.blend",
+    "bytes": 20160724,
+    "meshes": 38,
+    "faces_before": 455841,
+    "faces_after": 188751,
+    "meshes_reduced": 29,
+    "images_resized": 42,
+    "removed_for_cutaway": [
+      "ceiling_01",
+      "wall_west_01"
+    ]
+  },
+  "text-detailed-kitchen": {
+    "source": "text/detailed_kitchen/detailed_kitchen.blend",
+    "bytes": 20781036,
+    "meshes": 41,
+    "faces_before": 616887,
+    "faces_after": 194087,
+    "meshes_reduced": 29,
+    "images_resized": 45,
+    "removed_for_cutaway": [
+      "ceiling_01",
+      "wall_west_01"
+    ]
+  },
+  "text-functional-babyroom": {
+    "source": "text/functional_babyroom/text_functional2.blend",
+    "bytes": 9685628,
+    "meshes": 24,
+    "faces_before": 358695,
+    "faces_after": 89404,
+    "meshes_reduced": 14,
+    "images_resized": 30,
+    "removed_for_cutaway": [
+      "ceiling_01",
+      "wall_west_01"
+    ]
+  },
+  "text-functional-entertainment-room": {
+    "source": "text/functional_entertainment_room/scene.blend",
+    "bytes": 9045568,
+    "meshes": 17,
+    "faces_before": 700001,
+    "faces_after": 84016,
+    "meshes_reduced": 14,
+    "images_resized": 29,
+    "removed_for_cutaway": [
+      "ceiling_01",
+      "wall_west_01"
+    ]
+  },
+  "image-bedroom": {
+    "source": "img/bedroom/bedroom.blend",
+    "bytes": 7718772,
+    "meshes": 15,
+    "faces_before": 599984,
+    "faces_after": 72014,
+    "meshes_reduced": 12,
+    "images_resized": 25,
+    "removed_for_cutaway": [
+      "ceiling_01",
+      "wall_west_01"
+    ]
+  },
+  "image-livingroom": {
+    "source": "img/livingroom/livingroom.blend",
+    "bytes": 12923184,
+    "meshes": 23,
+    "faces_before": 999968,
+    "faces_after": 120015,
+    "meshes_reduced": 20,
+    "images_resized": 33,
+    "removed_for_cutaway": [
+      "ceiling_01",
+      "wall_west_01"
+    ]
+  },
+  "image-meetingroom": {
+    "source": "img/meetingroom/meetingroom.blend",
+    "bytes": 16883928,
+    "meshes": 30,
+    "faces_before": 1299916,
+    "faces_after": 156022,
+    "meshes_reduced": 26,
+    "images_resized": 41,
+    "removed_for_cutaway": [
+      "ceiling_01",
+      "wall_west_01"
+    ]
+  }
+}
