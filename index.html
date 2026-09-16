@@ -19,7 +19,7 @@
       <a class="brand" href="#home" aria-label="MOSAIC home"><img src="assets/favicon.svg" width="25" height="25" alt="">MOSAIC</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">☰</span></button>
       <nav id="navigation" aria-label="Main navigation">
-        <a href="#demo">Demo</a><a href="#text-to-scene">Text-to-Scene</a><a href="#image-to-scene">Image-to-Scene</a><a href="#interactive">Interactive Scenes</a><a href="#editing">Editing</a><a href="#pipeline">Pipeline</a><a href="#citation">Citation</a>
+        <a href="#text-to-scene">Text-to-Scene</a><a href="#image-to-scene">Image-to-Scene</a><a href="#interactive">Interactive Scenes</a><a href="#editing">Editing</a><a href="#demo">Demo</a><a href="#pipeline">Pipeline</a><a href="#post-processing">Post-processing</a><a href="#citation">Citation</a>
       </nav>
       <a class="nav-code" href="https://github.com/ZhuSiiqii/MOSAIC" target="_blank" rel="noopener noreferrer">Code <span aria-hidden="true">↗</span></a>
     </div>
@@ -38,25 +38,14 @@
           <a class="button button-white" href="https://github.com/ZhuSiiqii/MOSAIC" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 1 12l7 7M16 5l7 7-7 7M14 3l-4 18"/></svg> Code</a>
           <a class="button button-white" href="#pipeline"><span aria-hidden="true">▧</span> Method</a>
         </div>
-        <a class="hero-scroll" href="#demo">EXPLORE THE PROJECT <span aria-hidden="true">↓</span></a>
+        <a class="hero-scroll" href="#text-to-scene">EXPLORE THE PROJECT <span aria-hidden="true">↓</span></a>
       </div>
       <div class="hero-caption">MOSAIC <span>/</span> Multimodal, in-situ scene creation and editing</div>
     </section>
 
-    <section class="section container" id="demo" aria-labelledby="demo-title">
-      <div class="section-heading"><p class="eyebrow">01 / SEE IT IN ACTION</p><h2 id="demo-title">From imagination to immersion.</h2><p>MOSAIC combines semantic inputs with VR-native spatial interactions<br class="desktop-break"> for in-situ scene creation and editing.</p></div>
-      <!-- Replace this placeholder with a video element when the demo is ready. -->
-      <div class="demo-placeholder placeholder">
-        <span class="media-label">PROJECT DEMO</span>
-        <div class="placeholder-center"><div class="play-symbol" aria-hidden="true">▷</div><h3>A space for your ideas.</h3><p>Demo video coming soon</p></div>
-        <div class="demo-bottom"><span>MOSAIC / System walkthrough</span><span class="pill">VIDEO PLACEHOLDER</span></div>
-      </div>
-      <div class="demo-features"><span><b>01</b> Describe or show</span><span><b>02</b> Generate progressively</span><span><b>03</b> Edit in your space</span></div>
-    </section>
-
     <section class="section section-tinted" id="text-to-scene" aria-labelledby="text-title">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">02 / LANGUAGE AS A STARTING POINT</p><h2 id="text-title">Text-to-Scene</h2><p>Describe a space. MOSAIC interprets the objects and their relationships,<br class="desktop-break"> then plans the layout and generates 3D assets in parallel.</p></div>
+        <div class="section-heading"><p class="eyebrow">01 / LANGUAGE AS A STARTING POINT</p><h2 id="text-title">Text-to-Scene</h2><p>Describe a space. MOSAIC interprets the objects and their relationships,<br class="desktop-break"> then plans the layout and generates 3D assets in parallel.</p></div>
         <div class="result-grid">
           <article class="result-card"><div class="result-placeholder placeholder"><span class="media-label">EXAMPLE 01</span><span class="wire-cube" aria-hidden="true">◇</span><span class="placeholder-note">Scene result coming soon</span></div><div class="result-copy"><span class="small-label">TEXT PROMPT · ILLUSTRATIVE</span><h3>A warm living room</h3><p>“A cozy, mid-century living room with a wooden cabinet, green armchair, round coffee table, and warm lighting.”</p></div></article>
           <article class="result-card"><div class="result-placeholder placeholder"><span class="media-label">EXAMPLE 02</span><span class="wire-cube" aria-hidden="true">◇</span><span class="placeholder-note">Scene result coming soon</span></div><div class="result-copy"><span class="small-label">TEXT PROMPT · ILLUSTRATIVE</span><h3>A quiet workspace</h3><p>“A bright study with a wooden desk beside the window, a reading chair, bookshelves, and a small desk lamp.”</p></div></article>
@@ -67,7 +56,7 @@
     </section>
 
     <section class="section container" id="image-to-scene" aria-labelledby="image-title">
-      <div class="section-heading"><p class="eyebrow">03 / A PICTURE BECOMES A PLACE</p><h2 id="image-title">Image-to-Scene</h2><p>Start with a single reference image. Visual parsing extracts room structure,<br class="desktop-break"> objects, and spatial relationships to guide scene generation.</p></div>
+      <div class="section-heading"><p class="eyebrow">02 / A PICTURE BECOMES A PLACE</p><h2 id="image-title">Image-to-Scene</h2><p>Start with a single reference image. Visual parsing extracts room structure,<br class="desktop-break"> objects, and spatial relationships to guide scene generation.</p></div>
       <div class="image-comparison">
         <div class="image-panel"><div class="panel-heading"><span class="small-label">INPUT</span><h3>Reference image</h3></div><div class="image-placeholder placeholder"><svg class="placeholder-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="6" y="8" width="36" height="32" rx="4"/><circle cx="17" cy="18" r="3"/><path d="m7 34 12-11 9 9 6-6 8 8"/></svg><span class="placeholder-note">Reference image coming soon</span></div></div>
         <span class="comparison-arrow" aria-hidden="true">→</span>
@@ -78,7 +67,7 @@
 
     <section class="section section-tinted" id="interactive" aria-labelledby="interactive-title">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">04 / COARSE TO FINE, STAGE BY STAGE</p><h2 id="interactive-title">A scene that takes shape progressively.</h2><p>Four cumulative stages bring the scene into VR, from room structure<br class="desktop-break"> to the smallest supported objects.</p></div>
+        <div class="section-heading"><p class="eyebrow">03 / COARSE TO FINE, STAGE BY STAGE</p><h2 id="interactive-title">A scene that takes shape progressively.</h2><p>Four cumulative stages bring the scene into VR, from room structure<br class="desktop-break"> to the smallest supported objects.</p></div>
         <div class="stage-tabs" role="tablist" aria-label="Scene delivery stages">
           <button class="stage-tab" id="tab-structure" role="tab" aria-selected="false" aria-controls="stage-panel" tabindex="-1" data-stage="structure"><span>01</span><div><strong>Structure</strong><small>The space itself</small></div></button>
           <button class="stage-tab" id="tab-attached" role="tab" aria-selected="false" aria-controls="stage-panel" tabindex="-1" data-stage="attached"><span>02</span><div><strong>Attached</strong><small>Walls &amp; ceiling</small></div></button>
@@ -101,7 +90,7 @@
     </section>
 
     <section class="section container" id="editing" aria-labelledby="editing-title">
-      <div class="section-heading"><p class="eyebrow">05 / CREATE. REFINE. REIMAGINE.</p><h2 id="editing-title">Continuous scene editing</h2><p>Explore successive edits to the same scene, using a sketch, a bounding box,<br class="desktop-break"> or natural language. Drag the divider to compare before and after.</p></div>
+      <div class="section-heading"><p class="eyebrow">04 / CREATE. REFINE. REIMAGINE.</p><h2 id="editing-title">Continuous scene editing</h2><p>Explore successive edits to the same scene, using a sketch, a bounding box,<br class="desktop-break"> or natural language. Drag the divider to compare before and after.</p></div>
       <div class="editing-workspace">
         <aside class="edit-scenes" aria-label="Choose a scene">
           <p class="small-label">SELECT A SCENE</p>
@@ -132,23 +121,44 @@
       </div>
     </section>
 
+    <section class="section demo-section" id="demo" aria-labelledby="demo-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">05 / SEE IT IN ACTION</p><h2 id="demo-title">From imagination to immersion.</h2><p>Watch the full MOSAIC workflow, from multimodal input and progressive generation<br class="desktop-break"> to in-situ scene editing in virtual reality.</p></div>
+        <div class="demo-player">
+          <video class="demo-video" controls playsinline preload="metadata" poster="assets/media/demo-poster.jpg" aria-label="MOSAIC project demonstration">
+            <source src="assets/media/demo.mp4" type="video/mp4">
+            Your browser does not support HTML video. <a href="assets/media/demo.mp4">Download the demo</a>.
+          </video>
+        </div>
+        <div class="demo-features"><span><b>01</b> Describe or show</span><span><b>02</b> Generate progressively</span><span><b>03</b> Edit in your space</span></div>
+      </div>
+    </section>
+
     <section class="section container" id="pipeline" aria-labelledby="pipeline-title">
       <div class="section-heading"><p class="eyebrow">06 / UNDER THE HOOD</p><h2 id="pipeline-title">One pipeline. Multiple ways to create.</h2><p>Hierarchical reasoning and parallel asset generation connect<br class="desktop-break"> multimodal intent to an editable, immersive scene.</p></div>
-      <div class="pipeline-figure" role="figure" aria-label="MOSAIC pipeline: text or image input is understood, then hierarchical layout planning and asset generation run in parallel. Their outputs are assembled and delivered progressively to VR.">
-        <div class="pipeline-topline"><span class="small-label">MOSAIC SYSTEM OVERVIEW</span><span class="pipeline-legend"><i></i> Planning <i></i> Generation</span></div>
-        <div class="pipeline-flow">
-          <div class="pipeline-node input-node"><span class="node-icon" aria-hidden="true">T / ▧</span><strong>Multimodal input</strong><small>Text or image</small><span class="flow-arrow" aria-hidden="true">→</span></div>
-          <div class="pipeline-node understanding-node"><span class="node-icon" aria-hidden="true">⌘</span><strong>Input understanding</strong><small>Entities, hierarchy<br>&amp; spatial relationships</small><span class="flow-arrow" aria-hidden="true">→</span></div>
-          <div class="parallel-branches"><span class="parallel-label">RUN IN PARALLEL</span><div class="pipeline-node planning-node"><strong>Hierarchical layout planning</strong><div class="mini-stages"><span>Structure</span><b>→</b><span>Attached</span><b>→</b><span>Primary</span><b>→</b><span>Supported</span></div></div><div class="pipeline-node asset-node"><strong>3D asset generation</strong><small>Reference images → Background removal<br>→ TRELLIS → Front calibration</small></div><span class="flow-arrow" aria-hidden="true">→</span></div>
-          <div class="pipeline-node output-node"><span class="node-icon" aria-hidden="true">◇</span><strong>Assemble &amp; deliver</strong><small>Cumulative scenes<br>ready for VR interaction</small></div>
-        </div>
-        <div class="pipeline-edit"><span aria-hidden="true">↳</span><strong>In-situ editing</strong><span>3D sketches · Semantic bounding boxes · Appearance edits · Direct manipulation</span></div>
-      </div>
+      <figure class="paper-figure pipeline-paper">
+        <img src="assets/media/pipeline.png" alt="MOSAIC pipeline showing scene graph initialization, hierarchical scene generation, asset synthesis, immersive scene editing, and automatic correction" loading="lazy" decoding="async">
+      </figure>
       <div class="method-copy"><p><strong>Plan from coarse to fine.</strong> MOSAIC first establishes entities and their hierarchy, then resolves layouts across Structure, Attached, Primary, and Supported stages. Image inputs additionally supply visual topology to guide spatial reasoning.</p><p><strong>Generate in parallel. Interact in place.</strong> Asset production runs alongside layout planning. As each stage becomes ready, its cumulative scene is delivered to Vision Pro. VR-native editing supports sketch and bounding-box insertion, appearance changes, and direct manipulation.</p></div>
     </section>
 
+    <section class="section post-section" id="post-processing" aria-labelledby="post-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">07 / KEEPING EDITS SPATIALLY COHERENT</p><h2 id="post-title">Post-processing for effortless VR editing.</h2><p>After each user operation, MOSAIC automatically resolves common spatial issues<br class="desktop-break"> so the scene stays stable, grounded, and easy to refine.</p></div>
+        <figure class="paper-figure post-paper">
+          <img src="assets/media/post.png" alt="Examples of collision handling, floating-object correction, dependency propagation, and rotation alignment in VR scenes" loading="lazy" decoding="async">
+        </figure>
+        <div class="post-grid">
+          <article><span>01</span><h3>Collision handling</h3><p>Moves edited objects to a valid placement when they overlap surrounding geometry.</p></article>
+          <article><span>02</span><h3>Floating fix</h3><p>Returns unsupported objects to the nearest suitable surface.</p></article>
+          <article><span>03</span><h3>Dependency propagation</h3><p>Moves supported objects together with the furniture or surface beneath them.</p></article>
+          <article><span>04</span><h3>Rotation alignment</h3><p>Aligns objects with nearby walls and scene structure for natural placement.</p></article>
+        </div>
+      </div>
+    </section>
+
     <section class="section citation-section" id="citation" aria-labelledby="citation-title">
-      <div class="container citation-container"><div class="section-heading"><p class="eyebrow">07 / REFERENCE</p><h2 id="citation-title">Citation</h2><p>BibTeX template. Author and publication details will be updated when available.</p></div><div class="citation-box"><div class="citation-toolbar"><span>BIBTEX <span class="citation-draft">/ DRAFT</span></span><button id="copy-citation" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M15 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3"/></svg><span>Copy BibTeX</span></button></div><pre><code id="bibtex">@misc{mosaic,
+      <div class="container citation-container"><div class="section-heading"><p class="eyebrow">08 / REFERENCE</p><h2 id="citation-title">Citation</h2><p>BibTeX template. Author and publication details will be updated when available.</p></div><div class="citation-box"><div class="citation-toolbar"><span>BIBTEX <span class="citation-draft">/ DRAFT</span></span><button id="copy-citation" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M15 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3"/></svg><span>Copy BibTeX</span></button></div><pre><code id="bibtex">@misc{mosaic,
   title = {MOSAIC: Multimodal Scene Authoring via
            Hierarchical Agent Orchestration in Virtual Reality},
   howpublished = {\url{https://github.com/ZhuSiiqii/MOSAIC}},

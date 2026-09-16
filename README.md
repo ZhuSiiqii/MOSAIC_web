@@ -1,6 +1,6 @@
 # MOSAIC project website
 
-独立静态项目主页，无需 npm、构建或第三方 CDN。页面正文为英文，包含封面、Demo、Text-to-Scene、Image-to-Scene、层次化交互场景、连续编辑、Pipeline 和 Citation 八个模块。
+独立静态项目主页，无需 npm、构建或第三方 CDN。页面正文为英文，包含封面、Text-to-Scene、Image-to-Scene、层次化交互场景、连续编辑、Demo、Pipeline、VR 后处理和 Citation。
 
 ## 本地预览
 
@@ -21,19 +21,21 @@ python3 -m http.server 8000
 - `assets/edits/`：24 张连续编辑原图的独立副本，保留原始 PNG 画质。
 - `scene-viewer.js`：真实 3D 场景、自动旋转、暂停/恢复、重置视角及阶段切换。
 - `assets/scenes/`：四个累计展示阶段的 GLB（内嵌贴图）、透明背景预览图和导出统计。
+- `assets/media/`：网页优化后的 Demo 视频及封面、Pipeline 图和 VR 后处理图。
 - `vendor/model-viewer/`：本地打包的 model-viewer 4.3.1，包含上游许可证；运行时无需 CDN。
 - `assets/teaser.jpg`：来自项目 `docs/imgs/teaser.jpg` 的独立副本。
 - `assets/favicon.svg`：简单的拼块图标。
 
-Demo、Text-to-Scene / Image-to-Scene 结果目前均为明确标注的占位内容；连续编辑模块已接入完整图片，3D 模块已接入用户提供的 Blender 场景。Text-to-Scene 的三条 prompt 为说明性示例，并非已验证的实验结果。
+Demo、Pipeline 和 VR 后处理模块已接入完整素材；Text-to-Scene / Image-to-Scene 结果目前仍为明确标注的占位内容。连续编辑模块已接入完整图片，3D 模块已接入用户提供的 Blender 场景。Text-to-Scene 的三条 prompt 为说明性示例，并非已验证的实验结果。
 
 替换内容时：
 
-1. Demo：将 `.demo-placeholder` 替换为带 `controls`、`playsinline` 的 `<video>`，设置本地视频路径和 `poster`。
+1. Demo：替换 `assets/media/demo.mp4` 和 `assets/media/demo-poster.jpg`。
 2. Text-to-Scene：替换各 `.result-placeholder` 为对应真实图片或视频，同时更新 prompt 并移除占位标记。
 3. Image-to-Scene：将两个 `.image-placeholder` 分别替换为源图和生成结果。
-4. 3D 场景：替换 `assets/scenes/livingroom-{stage}.glb` 和预览图；调整 `scene-viewer.js` 及 `index.html` 中的默认相机视角。
-5. 作者与论文：在封面预留注释处填写确认的作者及机构，按需添加论文按钮；用正式 BibTeX 替换 `#bibtex`，同时移除草稿说明。
+4. Pipeline 与后处理：替换 `assets/media/pipeline.png` 和 `assets/media/post.png`。
+5. 3D 场景：替换 `assets/scenes/livingroom-{stage}.glb` 和预览图；调整 `scene-viewer.js` 及 `index.html` 中的默认相机视角。
+6. 作者与论文：在封面预留注释处填写确认的作者及机构，按需添加论文按钮；用正式 BibTeX 替换 `#bibtex`，同时移除草稿说明。
 
 ## 连续编辑素材
 
@@ -78,4 +80,4 @@ method: sketch / bbox / language
 
 此脚本依赖原 MOSAIC 开发目录中的源 `.blend`，只用于重新导出网页资源。部署后的浏览器不依赖它。查看器使用 [model-viewer](https://modelviewer.dev/)，其光照与交互参数参见[官方示例](https://modelviewer.dev/examples/lighting-and-environment.html)。
 
-Pipeline 依据原 MOSAIC 仓库中的 `docs/architecture.md`、`docs/visionpro_staged_scene_delivery.md` 及项目实现整理。页面结构参考 [SceneSmith](https://scenesmith.github.io/)，页面代码为本项目新写。
+Pipeline 使用 `pipeline.pdf` 渲染的网页图，VR 后处理使用 `post.pdf` 渲染的网页图；部署不依赖仓库外的 PDF。Pipeline 文案依据原 MOSAIC 仓库中的 `docs/architecture.md`、`docs/visionpro_staged_scene_delivery.md` 及项目实现整理。页面结构参考 [SceneSmith](https://scenesmith.github.io/)，页面代码为本项目新写。
