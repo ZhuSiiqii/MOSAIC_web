@@ -1,105 +1,121 @@
 {
   "text-atmosphere-bedroom": {
     "source": "text/atmosphere_bedroom/text_atmosphere.blend",
-    "bytes": 7800096,
+    "bytes": 16847004,
     "meshes": 23,
     "faces_before": 241586,
-    "faces_after": 71899,
-    "meshes_reduced": 11,
-    "images_resized": 27,
+    "faces_after": 151732,
+    "meshes_reduced": 6,
+    "images_resized": 0,
     "removed_for_cutaway": [
       "wall_west_01"
-    ]
+    ],
+    "materials_simplified": 10,
+    "lights_exported": 6
   },
   "text-detailed-cafe": {
     "source": "text/detailed_cafe/detailed_cafe.blend",
-    "bytes": 20160724,
+    "bytes": 41933724,
     "meshes": 38,
     "faces_before": 455841,
-    "faces_after": 188751,
-    "meshes_reduced": 29,
-    "images_resized": 42,
+    "faces_after": 385827,
+    "meshes_reduced": 8,
+    "images_resized": 0,
     "removed_for_cutaway": [
       "ceiling_01",
       "wall_west_01"
-    ]
+    ],
+    "materials_simplified": 7,
+    "lights_exported": 6
   },
   "text-detailed-kitchen": {
     "source": "text/detailed_kitchen/detailed_kitchen.blend",
-    "bytes": 20781036,
+    "bytes": 43586632,
     "meshes": 41,
     "faces_before": 616887,
-    "faces_after": 194087,
-    "meshes_reduced": 29,
-    "images_resized": 45,
+    "faces_after": 399659,
+    "meshes_reduced": 15,
+    "images_resized": 0,
     "removed_for_cutaway": [
       "ceiling_01",
       "wall_west_01"
-    ]
+    ],
+    "materials_simplified": 7,
+    "lights_exported": 6
   },
   "text-functional-babyroom": {
     "source": "text/functional_babyroom/text_functional2.blend",
-    "bytes": 9685628,
+    "bytes": 21642960,
     "meshes": 24,
     "faces_before": 358695,
-    "faces_after": 89404,
-    "meshes_reduced": 14,
-    "images_resized": 30,
+    "faces_after": 196370,
+    "meshes_reduced": 7,
+    "images_resized": 0,
     "removed_for_cutaway": [
       "ceiling_01",
       "wall_west_01"
-    ]
+    ],
+    "materials_simplified": 10,
+    "lights_exported": 6
   },
   "text-functional-entertainment-room": {
     "source": "text/functional_entertainment_room/scene.blend",
-    "bytes": 9045568,
+    "bytes": 25107156,
     "meshes": 17,
     "faces_before": 700001,
-    "faces_after": 84016,
+    "faces_after": 224011,
     "meshes_reduced": 14,
-    "images_resized": 29,
+    "images_resized": 14,
     "removed_for_cutaway": [
       "ceiling_01",
       "wall_west_01"
-    ]
+    ],
+    "materials_simplified": 7,
+    "lights_exported": 5
   },
   "image-bedroom": {
     "source": "img/bedroom/bedroom.blend",
-    "bytes": 7718772,
+    "bytes": 20657384,
     "meshes": 15,
     "faces_before": 599984,
-    "faces_after": 72014,
+    "faces_after": 192013,
     "meshes_reduced": 12,
-    "images_resized": 25,
+    "images_resized": 13,
     "removed_for_cutaway": [
       "ceiling_01",
       "wall_west_01"
-    ]
+    ],
+    "materials_simplified": 4,
+    "lights_exported": 7
   },
   "image-livingroom": {
     "source": "img/livingroom/livingroom.blend",
-    "bytes": 12923184,
+    "bytes": 34436160,
     "meshes": 23,
     "faces_before": 999968,
-    "faces_after": 120015,
+    "faces_after": 320008,
     "meshes_reduced": 20,
-    "images_resized": 33,
+    "images_resized": 21,
     "removed_for_cutaway": [
       "ceiling_01",
       "wall_west_01"
-    ]
+    ],
+    "materials_simplified": 1,
+    "lights_exported": 6
   },
   "image-meetingroom": {
     "source": "img/meetingroom/meetingroom.blend",
-    "bytes": 16883928,
+    "bytes": 46059536,
     "meshes": 30,
     "faces_before": 1299916,
-    "faces_after": 156022,
+    "faces_after": 416017,
     "meshes_reduced": 26,
-    "images_resized": 41,
+    "images_resized": 26,
     "removed_for_cutaway": [
       "ceiling_01",
       "wall_west_01"
-    ]
+    ],
+    "materials_simplified": 5,
+    "lights_exported": 4
   }
 }
