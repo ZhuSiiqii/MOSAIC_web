@@ -73,7 +73,7 @@ Pipeline、Efficiency 和 Post-processing 紧随 Overview，分别作为第 2、
 
 Text-to-Scene 每行展示两个结果，按目录前缀排序：Atmosphere、Detailed、Functional。Image-to-Scene 共三行，分别为 Bedroom、Living room、Meeting room，每行左侧展示 1254×1254 输入原图，右侧展示对应 3D 场景。
 
-所有结果场景默认缓慢旋转，各自提供 Pause / Resume rotation 按钮；不提供拖拽、平移、缩放或层次切换。系统开启“减少动态效果”时默认停止旋转。为便于观察室内，网页导出统一移除顶面和一侧墙，并将贴图嵌入 GLB。导出脚本会将墙面与地板整理为标准 glTF PBR 材质、保留 1024px 贴图、提高细小物体的面数上限，并写入灯具附近的局部暖光及柔和全局补光。当前单个文件约 17–46 MB，均低于 GitHub 单文件限制。
+所有结果场景默认缓慢旋转，各自提供 Pause / Resume rotation 按钮；不提供拖拽、平移、缩放或层次切换。系统开启“减少动态效果”时默认停止旋转。为便于观察室内，网页导出统一移除顶面和两面相邻墙，并将贴图嵌入 GLB。导出脚本会将墙面与地板整理为标准 glTF PBR 材质、保留 1024px 贴图、提高细小物体的面数上限，并写入灯具附近的局部暖光及低强度环境补光。当前单个文件约 17–46 MB，均低于 GitHub 单文件限制。
 
 源文件来自网站仓库同级的 `scene/text/` 和 `scene/img/`。重新导出命令如下，脚本不会覆盖源 `.blend`：
 
@@ -81,7 +81,7 @@ Text-to-Scene 每行展示两个结果，按目录前缀排序：Atmosphere、De
 /Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup --disable-autoexec --python tools/export_result_scenes.py
 ```
 
-Text-to-Scene 展示 `atmosphere_livingroom` 等 5 个文本生成场景，Image-to-Scene 展示 3 组参考图与重建场景。导出时保留原有开放面，并统一移除南、西两面墙及顶面；灯具附近使用暖色局部光，另配较弱的窗光和内嵌 HDR 环境光。
+Text-to-Scene 展示 `atmosphere_livingroom`、`atmosphere_bedroom` 等 6 个文本生成场景，Image-to-Scene 展示 3 组参考图与重建场景。导出时保留原有开放面，并移除两面相邻墙及顶面；Dopamine bedroom 保留完整窗户墙，其余场景移除南、西两面墙。灯具附近使用暖色局部光，另配低强度窗光和内嵌 HDR 环境光。
 
 ## 3D 场景展示
 

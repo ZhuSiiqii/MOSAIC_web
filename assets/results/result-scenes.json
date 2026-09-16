@@ -1,7 +1,7 @@
 {
   "text-atmosphere-livingroom": {
     "source": "text/atmosphere_livingroom/scene(3).blend",
-    "bytes": 29599312,
+    "bytes": 29599308,
     "meshes": 24,
     "faces_before": 504924,
     "faces_after": 265256,
@@ -19,6 +19,24 @@
     ],
     "materials_simplified": 13,
     "lights_exported": 6
+  },
+  "text-atmosphere-bedroom": {
+    "source": "text/atmosphere_bedroom/scene(4).blend",
+    "bytes": 23125288,
+    "meshes": 22,
+    "faces_before": 316213,
+    "faces_after": 207061,
+    "meshes_reduced": 7,
+    "images_resized": 0,
+    "removed_for_cutaway": [
+      "ceiling_01",
+      "wall_south_01",
+      "wall_south_02",
+      "wall_south_03",
+      "wall_east_01"
+    ],
+    "materials_simplified": 10,
+    "lights_exported": 7
   },
   "text-detailed-cafe": {
     "source": "text/detailed_cafe/detailed_cafe.blend",
@@ -40,7 +58,7 @@
   },
   "text-detailed-kitchen": {
     "source": "text/detailed_kitchen/detailed_kitchen.blend",
-    "bytes": 43580776,
+    "bytes": 43580772,
     "meshes": 38,
     "faces_before": 616869,
     "faces_after": 399641,
@@ -76,7 +94,7 @@
   },
   "text-functional-entertainment-room": {
     "source": "text/functional_entertainment_room/scene.blend",
-    "bytes": 25107152,
+    "bytes": 25107156,
     "meshes": 17,
     "faces_before": 700001,
     "faces_after": 224011,

@@ -23,6 +23,7 @@ OUTPUT.mkdir(parents=True, exist_ok=True)
 
 SCENES = {
     "text-atmosphere-livingroom": SOURCE_ROOT / "text" / "atmosphere_livingroom" / "scene(3).blend",
+    "text-atmosphere-bedroom": SOURCE_ROOT / "text" / "atmosphere_bedroom" / "scene(4).blend",
     "text-detailed-cafe": SOURCE_ROOT / "text" / "detailed_cafe" / "detailed_cafe.blend",
     "text-detailed-kitchen": SOURCE_ROOT / "text" / "detailed_kitchen" / "detailed_kitchen.blend",
     "text-functional-babyroom": SOURCE_ROOT / "text" / "functional_babyroom" / "text_functional2.blend",
@@ -32,7 +33,10 @@ SCENES = {
     "image-meetingroom": SOURCE_ROOT / "img" / "meetingroom" / "meetingroom.blend",
 }
 
-CUTAWAY_PREFIXES = ("wall_south_", "wall_west_")
+DEFAULT_CUTAWAY_PREFIXES = ("wall_south_", "wall_west_")
+CUTAWAY_PREFIXES = {
+    "text-atmosphere-bedroom": ("wall_south_", "wall_east_"),
+}
 
 
 def write_room_environment(width=256, height=128):
@@ -60,12 +64,12 @@ def write_room_environment(width=256, height=128):
             for x in range(width):
                 azimuth = ((x + 0.5) / width * 2.0 - 1.0) * math.pi
                 upper = max(0.0, math.sin(elevation))
-                base = 0.012 + 0.025 * upper
-                window = 0.55 * math.exp(
+                base = 0.006 + 0.014 * upper
+                window = 0.28 * math.exp(
                     -((azimuth + 2.25) / 0.34) ** 2
                     -((elevation - 0.18) / 0.42) ** 2
                 )
-                ceiling = 0.09 * math.exp(
+                ceiling = 0.05 * math.exp(
                     -((azimuth - 0.7) / 0.8) ** 2
                     -((elevation - 0.92) / 0.28) ** 2
                 )
@@ -170,7 +174,7 @@ def add_web_lights(scene):
             bpy.data.objects.remove(obj, do_unlink=True)
             continue
         if obj.data.type == "POINT":
-            obj.data.energy = min(1.4, max(0.45, obj.data.energy * 0.003))
+            obj.data.energy = min(1.0, max(0.3, obj.data.energy * 0.002))
             obj.data.color = (1.0, 0.78, 0.6)
             obj.data.shadow_soft_size = max(obj.data.shadow_soft_size, 0.28)
             local_lights += 1
@@ -183,11 +187,11 @@ def add_web_lights(scene):
         scene.collection.objects.link(obj)
         obj.rotation_euler = Euler(rotation)
 
-    sun("Web window key", 0.035, (1.0, 0.92, 0.82), (0.55, -0.35, -0.65))
-    sun("Web cool fill", 0.008, (0.72, 0.82, 1.0), (0.9, 0.25, 2.4))
+    sun("Web window key", 0.018, (1.0, 0.92, 0.82), (0.55, -0.35, -0.65))
+    sun("Web cool fill", 0.004, (0.72, 0.82, 1.0), (0.9, 0.25, 2.4))
 
     data = bpy.data.lights.new("Web overhead fill", "POINT")
-    data.energy = 0.08
+    data.energy = 0.04
     data.color = (1.0, 0.91, 0.78)
     data.shadow_soft_size = 0.8
     overhead = bpy.data.objects.new("Web overhead fill", data)
@@ -207,8 +211,9 @@ for slug, source in SCENES.items():
     print(f"EXPORTING {slug}", flush=True)
     bpy.ops.wm.open_mainfile(filepath=str(source), load_ui=False)
     removed = []
+    cutaway_prefixes = CUTAWAY_PREFIXES.get(slug, DEFAULT_CUTAWAY_PREFIXES)
     for obj in list(bpy.context.scene.objects):
-        if obj.name == "ceiling_01" or obj.name.startswith(CUTAWAY_PREFIXES):
+        if obj.name == "ceiling_01" or obj.name.startswith(cutaway_prefixes):
             removed.append(obj.name)
             bpy.data.objects.remove(obj, do_unlink=True)
     simplified_materials = prepare_materials()
