@@ -7,10 +7,10 @@
   <meta name="theme-color" content="#f8fafc">
   <title>MOSAIC — Multimodal Scene Authoring in Virtual Reality</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=features-20260916">
-  <script src="script.js?v=features-20260916" defer></script>
+  <link rel="stylesheet" href="styles.css?v=overview-cards-20260916">
+  <script src="script.js?v=overview-cards-20260916" defer></script>
   <script src="editing.js" defer></script>
-  <script type="module" src="scene-viewer.js?v=features-20260916"></script>
+  <script type="module" src="scene-viewer.js?v=overview-cards-20260916"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -19,7 +19,7 @@
       <a class="brand" href="#home" aria-label="MOSAIC home"><img src="assets/favicon.svg" width="25" height="25" alt="">MOSAIC</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">☰</span></button>
       <nav id="navigation" aria-label="Main navigation">
-        <a href="#interactive">Overview</a><a href="#text-to-scene">Text-to-Scene</a><a href="#image-to-scene">Image-to-Scene</a><a href="#editing">Editing</a><a href="#efficiency">Efficiency</a><a href="#demo">Demo</a><a href="#pipeline">Pipeline</a><a href="#post-processing">Post-processing</a><a href="#citation">Citation</a>
+        <a href="#interactive">Overview</a><a href="#pipeline">Pipeline</a><a href="#efficiency">Efficiency</a><a href="#post-processing">Post-processing</a><a href="#text-to-scene">Text-to-Scene</a><a href="#image-to-scene">Image-to-Scene</a><a href="#editing">Editing</a><a href="#demo">Demo</a><a href="#citation">Citation</a>
       </nav>
       <a class="nav-code" href="https://github.com/ZhuSiiqii/MOSAIC" target="_blank" rel="noopener noreferrer">Code <span aria-hidden="true">↗</span></a>
     </div>
@@ -47,23 +47,17 @@
       <div class="container">
         <div class="section-heading"><p class="eyebrow">01 / COARSE TO FINE, STAGE BY STAGE</p><h2 id="interactive-title">A scene that takes shape progressively.</h2><p>Four cumulative stages bring the scene into VR, from room structure<br class="desktop-break"> to the smallest supported objects.</p></div>
         <div class="feature-grid" aria-label="MOSAIC key features">
-          <article class="feature-card">
-            <span class="feature-letter" aria-hidden="true">A</span>
-            <h3>Multimodal<br>creation &amp; editing</h3>
-            <p>Generate scenes from language or images. Refine them in VR with language, 3D sketches, and semantic bounding boxes.</p>
-            <ul class="feature-tags" aria-label="Input and editing modalities"><li>Language</li><li>Image</li><li>Sketch</li><li>BBox</li></ul>
+          <article class="feature-card feature-multimodal">
+            <h3>Multimodal generation &amp; editing</h3>
+            <p>Generate scenes from <strong>language</strong> or <strong>images</strong>, then edit them in VR with <strong>language</strong>, <strong>3D sketches</strong>, and <strong>semantic bounding boxes</strong>.</p>
           </article>
           <article class="feature-card feature-efficiency">
-            <span class="feature-letter" aria-hidden="true">B</span>
-            <h3>Built for<br>efficient generation</h3>
-            <p>Plan hierarchically without rendered feedback. Decouple layout planning from asset synthesis so both can run in parallel.</p>
-            <ul class="feature-tags" aria-label="Efficiency features"><li>Hierarchical planning</li><li>Layout / Asset decoupling</li></ul>
+            <h3>Efficient scene generation</h3>
+            <p><strong>Hierarchical planning</strong> works without rendered feedback. <strong>Layout planning</strong> and <strong>asset synthesis</strong> are decoupled so they can run in parallel.</p>
           </article>
           <article class="feature-card feature-vr">
-            <span class="feature-letter" aria-hidden="true">C</span>
-            <h3>Easy to refine.<br>Natural in VR.</h3>
-            <p>Keep the focus on creating. Four automatic corrections help keep objects grounded, aligned, and coherent as you edit.</p>
-            <ul class="feature-tags" aria-label="Automatic corrections"><li>Collision handling</li><li>Floating fix</li><li>Dependency propagation</li><li>Rotation alignment</li></ul>
+            <h3>User-friendly VR interaction</h3>
+            <p>Four post-processing operations keep edits coherent: <strong>collision handling</strong>, <strong>floating fix</strong>, <strong>dependency propagation</strong>, and <strong>rotation alignment</strong>.</p>
           </article>
         </div>
         <div class="stage-tabs" role="tablist" aria-label="Scene delivery stages">
@@ -87,9 +81,51 @@
       </div>
     </section>
 
+    <section class="section container" id="pipeline" aria-labelledby="pipeline-title">
+      <div class="section-heading"><p class="eyebrow">02 / UNDER THE HOOD</p><h2 id="pipeline-title">One pipeline. Multiple ways to create.</h2><p>Hierarchical reasoning and parallel asset generation connect<br class="desktop-break"> multimodal intent to an editable, immersive scene.</p></div>
+      <figure class="paper-figure pipeline-paper">
+        <img src="assets/media/pipeline.png" alt="MOSAIC pipeline showing scene graph initialization, hierarchical scene generation, asset synthesis, immersive scene editing, and automatic correction" loading="lazy" decoding="async">
+      </figure>
+      <div class="method-copy"><p><strong>Plan from coarse to fine.</strong> MOSAIC first establishes entities and their hierarchy, then resolves layouts across Structure, Attached, Primary, and Supported stages. Image inputs additionally supply visual topology to guide spatial reasoning.</p><p><strong>Generate in parallel. Interact in place.</strong> Asset production runs alongside layout planning. As each stage becomes ready, its cumulative scene is delivered to Vision Pro. VR-native editing supports sketch and bounding-box insertion, appearance changes, and direct manipulation.</p></div>
+    </section>
+
+    <section class="section efficiency-section" id="efficiency" aria-labelledby="efficiency-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">03 / FAST FROM INPUT TO SCENE</p><h2 id="efficiency-title">Complete scenes in a fraction of the time.</h2><p>End-to-end generation time from input to an assembled scene.<br class="desktop-break"> Lower is better.</p></div>
+        <div class="efficiency-grid">
+          <article class="benchmark-card">
+            <div class="benchmark-heading"><span class="benchmark-icon" aria-hidden="true">T</span><div><span class="small-label">TEXT INPUT</span><h3>Text-to-Scene</h3></div></div>
+            <div class="benchmark-winner"><div><span>MOSAIC</span><strong><time datetime="PT4M55S">4:55</time></strong><small>TOTAL TIME</small></div><span class="fastest-badge">FASTEST</span></div>
+            <div class="benchmark-rows">
+              <div><span>Codex</span><strong><time datetime="PT13M50S">13:50</time></strong><small>2.8× slower</small></div>
+              <div><span>SceneSmith</span><strong><time datetime="PT83M54S">83:54</time></strong><small>17.1× slower</small></div>
+            </div>
+          </article>
+          <article class="benchmark-card">
+            <div class="benchmark-heading"><span class="benchmark-icon" aria-hidden="true">▧</span><div><span class="small-label">IMAGE INPUT</span><h3>Image-to-Scene</h3></div></div>
+            <div class="benchmark-winner"><div><span>MOSAIC</span><strong><time datetime="PT7M57S">7:57</time></strong><small>TOTAL TIME</small></div><span class="fastest-badge">FASTEST</span></div>
+            <div class="benchmark-rows">
+              <div><span>Codex</span><strong><time datetime="PT14M16S">14:16</time></strong><small>1.8× slower</small></div>
+              <div class="not-reported"><span>SceneSmith</span><strong>—</strong><small>Not reported</small></div>
+            </div>
+          </article>
+        </div>
+        <p class="benchmark-note">Total end-to-end time · mm:ss</p>
+      </div>
+    </section>
+
+    <section class="section post-section" id="post-processing" aria-labelledby="post-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">04 / KEEPING EDITS SPATIALLY COHERENT</p><h2 id="post-title">Post-processing for effortless VR editing.</h2><p>After each user operation, MOSAIC automatically resolves common spatial issues<br class="desktop-break"> so the scene stays stable, grounded, and easy to refine.</p></div>
+        <figure class="paper-figure post-paper">
+          <img src="assets/media/post.png" alt="Examples of collision handling, floating-object correction, dependency propagation, and rotation alignment in VR scenes" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+
     <section class="section section-tinted" id="text-to-scene" aria-labelledby="text-title">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">02 / LANGUAGE AS A STARTING POINT</p><h2 id="text-title">Text-to-Scene</h2><p>Describe a space. MOSAIC interprets the objects and their relationships,<br class="desktop-break"> then plans the layout and generates 3D assets in parallel.</p></div>
+        <div class="section-heading"><p class="eyebrow">05 / LANGUAGE AS A STARTING POINT</p><h2 id="text-title">Text-to-Scene</h2><p>Describe a space. MOSAIC interprets the objects and their relationships,<br class="desktop-break"> then plans the layout and generates 3D assets in parallel.</p></div>
         <div class="result-grid">
           <article class="result-card"><div class="result-placeholder placeholder"><span class="media-label">EXAMPLE 01</span><span class="wire-cube" aria-hidden="true">◇</span><span class="placeholder-note">Scene result coming soon</span></div><div class="result-copy"><span class="small-label">TEXT PROMPT · ILLUSTRATIVE</span><h3>A warm living room</h3><p>“A cozy, mid-century living room with a wooden cabinet, green armchair, round coffee table, and warm lighting.”</p></div></article>
           <article class="result-card"><div class="result-placeholder placeholder"><span class="media-label">EXAMPLE 02</span><span class="wire-cube" aria-hidden="true">◇</span><span class="placeholder-note">Scene result coming soon</span></div><div class="result-copy"><span class="small-label">TEXT PROMPT · ILLUSTRATIVE</span><h3>A quiet workspace</h3><p>“A bright study with a wooden desk beside the window, a reading chair, bookshelves, and a small desk lamp.”</p></div></article>
@@ -100,7 +136,7 @@
     </section>
 
     <section class="section container" id="image-to-scene" aria-labelledby="image-title">
-      <div class="section-heading"><p class="eyebrow">03 / A PICTURE BECOMES A PLACE</p><h2 id="image-title">Image-to-Scene</h2><p>Start with a single reference image. Visual parsing extracts room structure,<br class="desktop-break"> objects, and spatial relationships to guide scene generation.</p></div>
+      <div class="section-heading"><p class="eyebrow">06 / A PICTURE BECOMES A PLACE</p><h2 id="image-title">Image-to-Scene</h2><p>Start with a single reference image. Visual parsing extracts room structure,<br class="desktop-break"> objects, and spatial relationships to guide scene generation.</p></div>
       <div class="image-comparison">
         <div class="image-panel"><div class="panel-heading"><span class="small-label">INPUT</span><h3>Reference image</h3></div><div class="image-placeholder placeholder"><svg class="placeholder-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="6" y="8" width="36" height="32" rx="4"/><circle cx="17" cy="18" r="3"/><path d="m7 34 12-11 9 9 6-6 8 8"/></svg><span class="placeholder-note">Reference image coming soon</span></div></div>
         <span class="comparison-arrow" aria-hidden="true">→</span>
@@ -110,7 +146,7 @@
     </section>
 
     <section class="section container" id="editing" aria-labelledby="editing-title">
-      <div class="section-heading"><p class="eyebrow">04 / CREATE. REFINE. REIMAGINE.</p><h2 id="editing-title">Continuous scene editing</h2><p>Explore successive edits to the same scene, using a sketch, a bounding box,<br class="desktop-break"> or natural language. Drag the divider to compare before and after.</p></div>
+      <div class="section-heading"><p class="eyebrow">07 / CREATE. REFINE. REIMAGINE.</p><h2 id="editing-title">Continuous scene editing</h2><p>Explore successive edits to the same scene, using a sketch, a bounding box,<br class="desktop-break"> or natural language. Drag the divider to compare before and after.</p></div>
       <div class="editing-workspace">
         <aside class="edit-scenes" aria-label="Choose a scene">
           <p class="small-label">SELECT A SCENE</p>
@@ -141,34 +177,9 @@
       </div>
     </section>
 
-    <section class="section efficiency-section" id="efficiency" aria-labelledby="efficiency-title">
-      <div class="container">
-        <div class="section-heading"><p class="eyebrow">05 / FAST FROM INPUT TO SCENE</p><h2 id="efficiency-title">Complete scenes in a fraction of the time.</h2><p>End-to-end generation time from input to an assembled scene.<br class="desktop-break"> Lower is better.</p></div>
-        <div class="efficiency-grid">
-          <article class="benchmark-card">
-            <div class="benchmark-heading"><span class="benchmark-icon" aria-hidden="true">T</span><div><span class="small-label">TEXT INPUT</span><h3>Text-to-Scene</h3></div></div>
-            <div class="benchmark-winner"><div><span>MOSAIC</span><strong><time datetime="PT4M55S">4:55</time></strong><small>TOTAL TIME</small></div><span class="fastest-badge">FASTEST</span></div>
-            <div class="benchmark-rows">
-              <div><span>Codex</span><strong><time datetime="PT13M50S">13:50</time></strong><small>2.8× slower</small></div>
-              <div><span>SceneSmith</span><strong><time datetime="PT83M54S">83:54</time></strong><small>17.1× slower</small></div>
-            </div>
-          </article>
-          <article class="benchmark-card">
-            <div class="benchmark-heading"><span class="benchmark-icon" aria-hidden="true">▧</span><div><span class="small-label">IMAGE INPUT</span><h3>Image-to-Scene</h3></div></div>
-            <div class="benchmark-winner"><div><span>MOSAIC</span><strong><time datetime="PT7M57S">7:57</time></strong><small>TOTAL TIME</small></div><span class="fastest-badge">FASTEST</span></div>
-            <div class="benchmark-rows">
-              <div><span>Codex</span><strong><time datetime="PT14M16S">14:16</time></strong><small>1.8× slower</small></div>
-              <div class="not-reported"><span>SceneSmith</span><strong>—</strong><small>Not reported</small></div>
-            </div>
-          </article>
-        </div>
-        <p class="benchmark-note">Total end-to-end time · mm:ss</p>
-      </div>
-    </section>
-
     <section class="section demo-section" id="demo" aria-labelledby="demo-title">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">06 / SEE IT IN ACTION</p><h2 id="demo-title">From imagination to immersion.</h2><p>Watch the full MOSAIC workflow, from multimodal input and progressive generation<br class="desktop-break"> to in-situ scene editing in virtual reality.</p></div>
+        <div class="section-heading"><p class="eyebrow">08 / SEE IT IN ACTION</p><h2 id="demo-title">From imagination to immersion.</h2><p>Watch the full MOSAIC workflow, from multimodal input and progressive generation<br class="desktop-break"> to in-situ scene editing in virtual reality.</p></div>
         <div class="demo-player">
           <video class="demo-video" controls playsinline preload="metadata" poster="assets/media/demo-poster.jpg" aria-label="MOSAIC project demonstration">
             <source src="assets/media/demo.mp4" type="video/mp4">
@@ -176,23 +187,6 @@
           </video>
         </div>
         <div class="demo-features"><span><b>01</b> Describe or show</span><span><b>02</b> Generate progressively</span><span><b>03</b> Edit in your space</span></div>
-      </div>
-    </section>
-
-    <section class="section container" id="pipeline" aria-labelledby="pipeline-title">
-      <div class="section-heading"><p class="eyebrow">07 / UNDER THE HOOD</p><h2 id="pipeline-title">One pipeline. Multiple ways to create.</h2><p>Hierarchical reasoning and parallel asset generation connect<br class="desktop-break"> multimodal intent to an editable, immersive scene.</p></div>
-      <figure class="paper-figure pipeline-paper">
-        <img src="assets/media/pipeline.png" alt="MOSAIC pipeline showing scene graph initialization, hierarchical scene generation, asset synthesis, immersive scene editing, and automatic correction" loading="lazy" decoding="async">
-      </figure>
-      <div class="method-copy"><p><strong>Plan from coarse to fine.</strong> MOSAIC first establishes entities and their hierarchy, then resolves layouts across Structure, Attached, Primary, and Supported stages. Image inputs additionally supply visual topology to guide spatial reasoning.</p><p><strong>Generate in parallel. Interact in place.</strong> Asset production runs alongside layout planning. As each stage becomes ready, its cumulative scene is delivered to Vision Pro. VR-native editing supports sketch and bounding-box insertion, appearance changes, and direct manipulation.</p></div>
-    </section>
-
-    <section class="section post-section" id="post-processing" aria-labelledby="post-title">
-      <div class="container">
-        <div class="section-heading"><p class="eyebrow">08 / KEEPING EDITS SPATIALLY COHERENT</p><h2 id="post-title">Post-processing for effortless VR editing.</h2><p>After each user operation, MOSAIC automatically resolves common spatial issues<br class="desktop-break"> so the scene stays stable, grounded, and easy to refine.</p></div>
-        <figure class="paper-figure post-paper">
-          <img src="assets/media/post.png" alt="Examples of collision handling, floating-object correction, dependency propagation, and rotation alignment in VR scenes" loading="lazy" decoding="async">
-        </figure>
       </div>
     </section>
 

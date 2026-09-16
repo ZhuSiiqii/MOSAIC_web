@@ -1,6 +1,6 @@
 # MOSAIC project website
 
-独立静态项目主页，无需 npm、构建或第三方 CDN。页面正文为英文，包含封面、交互式方法总览、Text-to-Scene、Image-to-Scene、连续编辑、效率对比、Demo、Pipeline、VR 后处理和 Citation。
+独立静态项目主页，无需 npm、构建或第三方 CDN。页面正文为英文，依次包含封面、交互式方法总览、Pipeline、效率对比、VR 后处理、Text-to-Scene、Image-to-Scene、连续编辑、Demo 和 Citation。
 
 ## 本地预览
 
@@ -61,9 +61,11 @@ method: sketch / bbox / language
 
 ## 交互式方法总览
 
-封面后保留四阶段交互场景。在其上方以三栏特性卡片介绍：多模态生成与编辑（Language / Image / Sketch / BBox）；高效生成（层次化规划、Layout 与 Asset 解耦并行、无需渲染反馈）；VR 操作友好（碰撞处理、悬浮修正、依赖传播、旋转对齐）。手机端卡片纵向排列。
+封面后保留四阶段交互场景。在其上方以三个独立圆角文字卡片介绍：多模态生成与编辑（Language / Image / Sketch / BBox）；高效生成（层次化规划、Layout 与 Asset 解耦并行、无需渲染反馈）；VR 操作友好（碰撞处理、悬浮修正、依赖传播、旋转对齐）。关键词直接在说明文字中加粗，不使用字母、标签或额外切换功能；手机端卡片纵向排列。
 
 查看器使用原有四阶段完整资产场景，支持旋转、缩放和平移；已移除 Layout 示意切换、层次列表、流程文字和重复的效率数字，完整效率比较仍在 `#efficiency`。
+
+Pipeline、Efficiency 和 Post-processing 紧随 Overview，分别作为第 2、3、4 个内容模块。
 
 ## 3D 场景展示
 
