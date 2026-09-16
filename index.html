@@ -19,7 +19,7 @@
       <a class="brand" href="#home" aria-label="MOSAIC home"><img src="assets/favicon.svg" width="25" height="25" alt="">MOSAIC</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">☰</span></button>
       <nav id="navigation" aria-label="Main navigation">
-        <a href="#text-to-scene">Text-to-Scene</a><a href="#image-to-scene">Image-to-Scene</a><a href="#interactive">Interactive Scenes</a><a href="#editing">Editing</a><a href="#demo">Demo</a><a href="#pipeline">Pipeline</a><a href="#post-processing">Post-processing</a><a href="#citation">Citation</a>
+        <a href="#text-to-scene">Text-to-Scene</a><a href="#image-to-scene">Image-to-Scene</a><a href="#interactive">Interactive Scenes</a><a href="#editing">Editing</a><a href="#efficiency">Efficiency</a><a href="#demo">Demo</a><a href="#pipeline">Pipeline</a><a href="#post-processing">Post-processing</a><a href="#citation">Citation</a>
       </nav>
       <a class="nav-code" href="https://github.com/ZhuSiiqii/MOSAIC" target="_blank" rel="noopener noreferrer">Code <span aria-hidden="true">↗</span></a>
     </div>
@@ -121,9 +121,34 @@
       </div>
     </section>
 
+    <section class="section efficiency-section" id="efficiency" aria-labelledby="efficiency-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">05 / FAST FROM INPUT TO SCENE</p><h2 id="efficiency-title">Complete scenes in a fraction of the time.</h2><p>End-to-end generation time from input to an assembled scene.<br class="desktop-break"> Lower is better.</p></div>
+        <div class="efficiency-grid">
+          <article class="benchmark-card">
+            <div class="benchmark-heading"><span class="benchmark-icon" aria-hidden="true">T</span><div><span class="small-label">TEXT INPUT</span><h3>Text-to-Scene</h3></div></div>
+            <div class="benchmark-winner"><div><span>MOSAIC</span><strong><time datetime="PT4M55S">4:55</time></strong><small>TOTAL TIME</small></div><span class="fastest-badge">FASTEST</span></div>
+            <div class="benchmark-rows">
+              <div><span>Codex</span><strong><time datetime="PT13M50S">13:50</time></strong><small>2.8× slower</small></div>
+              <div><span>SceneSmith</span><strong><time datetime="PT83M54S">83:54</time></strong><small>17.1× slower</small></div>
+            </div>
+          </article>
+          <article class="benchmark-card">
+            <div class="benchmark-heading"><span class="benchmark-icon" aria-hidden="true">▧</span><div><span class="small-label">IMAGE INPUT</span><h3>Image-to-Scene</h3></div></div>
+            <div class="benchmark-winner"><div><span>MOSAIC</span><strong><time datetime="PT7M57S">7:57</time></strong><small>TOTAL TIME</small></div><span class="fastest-badge">FASTEST</span></div>
+            <div class="benchmark-rows">
+              <div><span>Codex</span><strong><time datetime="PT14M16S">14:16</time></strong><small>1.8× slower</small></div>
+              <div class="not-reported"><span>SceneSmith</span><strong>—</strong><small>Not reported</small></div>
+            </div>
+          </article>
+        </div>
+        <p class="benchmark-note">Total end-to-end time · mm:ss</p>
+      </div>
+    </section>
+
     <section class="section demo-section" id="demo" aria-labelledby="demo-title">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">05 / SEE IT IN ACTION</p><h2 id="demo-title">From imagination to immersion.</h2><p>Watch the full MOSAIC workflow, from multimodal input and progressive generation<br class="desktop-break"> to in-situ scene editing in virtual reality.</p></div>
+        <div class="section-heading"><p class="eyebrow">06 / SEE IT IN ACTION</p><h2 id="demo-title">From imagination to immersion.</h2><p>Watch the full MOSAIC workflow, from multimodal input and progressive generation<br class="desktop-break"> to in-situ scene editing in virtual reality.</p></div>
         <div class="demo-player">
           <video class="demo-video" controls playsinline preload="metadata" poster="assets/media/demo-poster.jpg" aria-label="MOSAIC project demonstration">
             <source src="assets/media/demo.mp4" type="video/mp4">
@@ -135,7 +160,7 @@
     </section>
 
     <section class="section container" id="pipeline" aria-labelledby="pipeline-title">
-      <div class="section-heading"><p class="eyebrow">06 / UNDER THE HOOD</p><h2 id="pipeline-title">One pipeline. Multiple ways to create.</h2><p>Hierarchical reasoning and parallel asset generation connect<br class="desktop-break"> multimodal intent to an editable, immersive scene.</p></div>
+      <div class="section-heading"><p class="eyebrow">07 / UNDER THE HOOD</p><h2 id="pipeline-title">One pipeline. Multiple ways to create.</h2><p>Hierarchical reasoning and parallel asset generation connect<br class="desktop-break"> multimodal intent to an editable, immersive scene.</p></div>
       <figure class="paper-figure pipeline-paper">
         <img src="assets/media/pipeline.png" alt="MOSAIC pipeline showing scene graph initialization, hierarchical scene generation, asset synthesis, immersive scene editing, and automatic correction" loading="lazy" decoding="async">
       </figure>
@@ -144,7 +169,7 @@
 
     <section class="section post-section" id="post-processing" aria-labelledby="post-title">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">07 / KEEPING EDITS SPATIALLY COHERENT</p><h2 id="post-title">Post-processing for effortless VR editing.</h2><p>After each user operation, MOSAIC automatically resolves common spatial issues<br class="desktop-break"> so the scene stays stable, grounded, and easy to refine.</p></div>
+        <div class="section-heading"><p class="eyebrow">08 / KEEPING EDITS SPATIALLY COHERENT</p><h2 id="post-title">Post-processing for effortless VR editing.</h2><p>After each user operation, MOSAIC automatically resolves common spatial issues<br class="desktop-break"> so the scene stays stable, grounded, and easy to refine.</p></div>
         <figure class="paper-figure post-paper">
           <img src="assets/media/post.png" alt="Examples of collision handling, floating-object correction, dependency propagation, and rotation alignment in VR scenes" loading="lazy" decoding="async">
         </figure>
@@ -152,7 +177,7 @@
     </section>
 
     <section class="section citation-section" id="citation" aria-labelledby="citation-title">
-      <div class="container citation-container"><div class="section-heading"><p class="eyebrow">08 / REFERENCE</p><h2 id="citation-title">Citation</h2><p>BibTeX template. Author and publication details will be updated when available.</p></div><div class="citation-box"><div class="citation-toolbar"><span>BIBTEX <span class="citation-draft">/ DRAFT</span></span><button id="copy-citation" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M15 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3"/></svg><span>Copy BibTeX</span></button></div><pre><code id="bibtex">@misc{mosaic,
+      <div class="container citation-container"><div class="section-heading"><p class="eyebrow">09 / REFERENCE</p><h2 id="citation-title">Citation</h2><p>BibTeX template. Author and publication details will be updated when available.</p></div><div class="citation-box"><div class="citation-toolbar"><span>BIBTEX <span class="citation-draft">/ DRAFT</span></span><button id="copy-citation" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M15 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3"/></svg><span>Copy BibTeX</span></button></div><pre><code id="bibtex">@misc{mosaic,
   title = {MOSAIC: Multimodal Scene Authoring via
            Hierarchical Agent Orchestration in Virtual Reality},
   howpublished = {\url{https://github.com/ZhuSiiqii/MOSAIC}},

@@ -1,6 +1,6 @@
 # MOSAIC project website
 
-独立静态项目主页，无需 npm、构建或第三方 CDN。页面正文为英文，包含封面、Text-to-Scene、Image-to-Scene、层次化交互场景、连续编辑、Demo、Pipeline、VR 后处理和 Citation。
+独立静态项目主页，无需 npm、构建或第三方 CDN。页面正文为英文，包含封面、Text-to-Scene、Image-to-Scene、层次化交互场景、连续编辑、效率对比、Demo、Pipeline、VR 后处理和 Citation。
 
 ## 本地预览
 
@@ -27,6 +27,8 @@ python3 -m http.server 8000
 - `assets/favicon.svg`：简单的拼块图标。
 
 Demo、Pipeline 和 VR 后处理模块已接入完整素材；Text-to-Scene / Image-to-Scene 结果目前仍为明确标注的占位内容。连续编辑模块已接入完整图片，3D 模块已接入用户提供的 Blender 场景。Text-to-Scene 的三条 prompt 为说明性示例，并非已验证的实验结果。
+
+效率模块仅比较端到端总时间：Text 输入为 MOSAIC 4:55、Codex 13:50、SceneSmith 83:54；Image 输入为 MOSAIC 7:57、Codex 14:16，SceneSmith 未报告。页面不展示 Layout 与 Asset 的分项时间。
 
 替换内容时：
 
