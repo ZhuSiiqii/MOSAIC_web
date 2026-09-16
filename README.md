@@ -1,6 +1,6 @@
 # MOSAIC project website
 
-独立静态项目主页，无需 npm、构建或第三方 CDN。页面正文为英文，包含封面、Text-to-Scene、Image-to-Scene、层次化交互场景、连续编辑、效率对比、Demo、Pipeline、VR 后处理和 Citation。
+独立静态项目主页，无需 npm、构建或第三方 CDN。页面正文为英文，包含封面、交互式方法总览、Text-to-Scene、Image-to-Scene、连续编辑、效率对比、Demo、Pipeline、VR 后处理和 Citation。
 
 ## 本地预览
 
@@ -19,8 +19,8 @@ python3 -m http.server 8000
 - `script.js`：手机导航、当前模块高亮、四阶段切换、引用复制。
 - `editing.js`：四场景、三编辑方式及前后对比拖拽；`editScenes` 存放场景标识和指令。
 - `assets/edits/`：24 张连续编辑原图的独立副本，保留原始 PNG 画质。
-- `scene-viewer.js`：真实 3D 场景、自动旋转、暂停/恢复、重置视角及阶段切换。
-- `assets/scenes/`：四个累计展示阶段的 GLB（内嵌贴图）、透明背景预览图和导出统计。
+- `scene-viewer.js`：Layout / Assembled scene 切换、自动旋转、暂停/恢复、重置视角及阶段切换。
+- `assets/scenes/`：四阶段完整场景 GLB（内嵌贴图）、四阶段轻量 Layout 示意 GLB、透明背景预览图和导出统计。
 - `assets/media/`：网页优化后的 Demo 视频及封面、Pipeline 图和 VR 后处理图。
 - `vendor/model-viewer/`：本地打包的 model-viewer 4.3.1，包含上游许可证；运行时无需 CDN。
 - `assets/teaser.jpg`：来自项目 `docs/imgs/teaser.jpg` 的独立副本。
@@ -58,6 +58,18 @@ method: sketch / bbox / language
 对应场景为 Warm bedroom、Living room、Study、Music studio。Sketch / BBox 使用各自带交互标记的 input，不将上一步的 output 代替下一步的 input。Language Edit 直接使用已提供的完整场景结果，无需额外合成示意小图。
 
 所有图片均为 4:3，原始分辨率为 2048×1536 或 1448×1086；比较器按同一画幅等比显示完整图片，不会随滑块拖动缩放。每次仅加载当前选中的一对图片，快速切换时忽略旧请求，避免串图。替换素材时沿用相同命名，并保持成对图片的相机视角和画幅一致。
+
+## 交互式方法总览
+
+封面后的首个区块 `#interactive` 概括效率、层次化结构、Layout / Asset 解耦和 VR 后处理。总耗时直接引用效率区块中的同一组数据；两条并行路径说明布局规划无需渲染反馈，资产合成独立进行。底部提供碰撞处理、悬浮修正、依赖传播、旋转对齐四种后处理方式的入口。
+
+Layout 与 Assembled scene 两种视图共享四阶段选择。Layout 中的色块是根据当前展示 GLB 的空间包围盒生成的说明性示意，不是在线规划、后端规划过程的录制或额外实验结果；灰蓝、绿色、蓝色、橙色分别对应 Structure、Attached、Primary、Supported。切换视图不会执行渲染或调用生成服务，网页本身仍用 WebGL 展示 3D 模型。
+
+可直接使用仓库内的完整 GLB 重新导出 Layout，无需源 `.blend` 或渲染：
+
+```bash
+/Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup --disable-autoexec --python tools/export_layout_preview.py
+```
 
 ## 3D 场景展示
 
