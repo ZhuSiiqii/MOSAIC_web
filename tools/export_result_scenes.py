@@ -8,6 +8,8 @@ The source .blend files are read from ../scene and are never modified.
 """
 
 import json
+import math
+import struct
 from pathlib import Path
 
 import bpy
@@ -20,7 +22,7 @@ OUTPUT = SITE / "assets" / "results"
 OUTPUT.mkdir(parents=True, exist_ok=True)
 
 SCENES = {
-    "text-atmosphere-bedroom": SOURCE_ROOT / "text" / "atmosphere_bedroom" / "text_atmosphere.blend",
+    "text-atmosphere-livingroom": SOURCE_ROOT / "text" / "atmosphere_livingroom" / "scene(3).blend",
     "text-detailed-cafe": SOURCE_ROOT / "text" / "detailed_cafe" / "detailed_cafe.blend",
     "text-detailed-kitchen": SOURCE_ROOT / "text" / "detailed_kitchen" / "detailed_kitchen.blend",
     "text-functional-babyroom": SOURCE_ROOT / "text" / "functional_babyroom" / "text_functional2.blend",
@@ -30,14 +32,56 @@ SCENES = {
     "image-meetingroom": SOURCE_ROOT / "img" / "meetingroom" / "meetingroom.blend",
 }
 
-CUTAWAYS = {
-    "text-atmosphere-bedroom": (
-        "wall_south_01",
-        "wall_south_02",
-        "wall_south_03",
-    ),
-}
-DEFAULT_CUTAWAY = ("ceiling_01", "wall_west_01")
+CUTAWAY_PREFIXES = ("wall_south_", "wall_west_")
+
+
+def write_room_environment(width=256, height=128):
+    """Create a subdued HDR environment with soft window and ceiling highlights."""
+    target = OUTPUT / "room-environment.hdr"
+
+    def rgbe(red, green, blue):
+        brightest = max(red, green, blue)
+        if brightest < 1e-32:
+            return (0, 0, 0, 0)
+        mantissa, exponent = math.frexp(brightest)
+        scale = mantissa * 256.0 / brightest
+        return (
+            min(255, int(red * scale)),
+            min(255, int(green * scale)),
+            min(255, int(blue * scale)),
+            exponent + 128,
+        )
+
+    with target.open("wb") as handle:
+        handle.write(f"#?RADIANCE\nFORMAT=32-bit_rle_rgbe\n\n-Y {height} +X {width}\n".encode("ascii"))
+        for y in range(height):
+            elevation = (0.5 - (y + 0.5) / height) * math.pi
+            scanline = []
+            for x in range(width):
+                azimuth = ((x + 0.5) / width * 2.0 - 1.0) * math.pi
+                upper = max(0.0, math.sin(elevation))
+                base = 0.012 + 0.025 * upper
+                window = 0.55 * math.exp(
+                    -((azimuth + 2.25) / 0.34) ** 2
+                    -((elevation - 0.18) / 0.42) ** 2
+                )
+                ceiling = 0.09 * math.exp(
+                    -((azimuth - 0.7) / 0.8) ** 2
+                    -((elevation - 0.92) / 0.28) ** 2
+                )
+                scanline.append(rgbe(
+                    base * 0.82 + window * 0.92 + ceiling,
+                    base * 0.9 + window * 0.98 + ceiling * 0.78,
+                    base + window + ceiling * 0.58,
+                ))
+            handle.write(bytes((2, 2, width >> 8, width & 255)))
+            for channel in range(4):
+                values = bytes(pixel[channel] for pixel in scanline)
+                for start in range(0, width, 128):
+                    chunk = values[start:start + 128]
+                    handle.write(bytes((len(chunk),)))
+                    handle.write(chunk)
+    return target
 
 
 def prepare_materials():
@@ -122,12 +166,13 @@ def add_web_lights(scene):
     for obj in list(scene.objects):
         if obj.type != "LIGHT":
             continue
-        if obj.data.type == "AREA":
+        if obj.data.type == "AREA" or obj.name.startswith("VRSceneKey"):
             bpy.data.objects.remove(obj, do_unlink=True)
             continue
         if obj.data.type == "POINT":
-            obj.data.energy = max(0.2, obj.data.energy * 0.0012)
-            obj.data.shadow_soft_size = max(obj.data.shadow_soft_size, 0.35)
+            obj.data.energy = min(1.4, max(0.45, obj.data.energy * 0.003))
+            obj.data.color = (1.0, 0.78, 0.6)
+            obj.data.shadow_soft_size = max(obj.data.shadow_soft_size, 0.28)
             local_lights += 1
 
     def sun(name, energy, color, rotation):
@@ -138,11 +183,11 @@ def add_web_lights(scene):
         scene.collection.objects.link(obj)
         obj.rotation_euler = Euler(rotation)
 
-    sun("Web warm key", 0.00004, (1.0, 0.88, 0.74), (0.55, -0.35, -0.65))
-    sun("Web cool fill", 0.00002, (0.74, 0.84, 1.0), (0.9, 0.25, 2.4))
+    sun("Web window key", 0.035, (1.0, 0.92, 0.82), (0.55, -0.35, -0.65))
+    sun("Web cool fill", 0.008, (0.72, 0.82, 1.0), (0.9, 0.25, 2.4))
 
     data = bpy.data.lights.new("Web overhead fill", "POINT")
-    data.energy = 0.16
+    data.energy = 0.08
     data.color = (1.0, 0.91, 0.78)
     data.shadow_soft_size = 0.8
     overhead = bpy.data.objects.new("Web overhead fill", data)
@@ -152,6 +197,7 @@ def add_web_lights(scene):
 
 
 report = {}
+write_room_environment()
 for slug, source in SCENES.items():
     if not source.exists():
         report[slug] = {"source": str(source), "missing": True}
@@ -161,10 +207,9 @@ for slug, source in SCENES.items():
     print(f"EXPORTING {slug}", flush=True)
     bpy.ops.wm.open_mainfile(filepath=str(source), load_ui=False)
     removed = []
-    for name in CUTAWAYS.get(slug, DEFAULT_CUTAWAY):
-        obj = bpy.data.objects.get(name)
-        if obj is not None:
-            removed.append(name)
+    for obj in list(bpy.context.scene.objects):
+        if obj.name == "ceiling_01" or obj.name.startswith(CUTAWAY_PREFIXES):
+            removed.append(obj.name)
             bpy.data.objects.remove(obj, do_unlink=True)
     simplified_materials = prepare_materials()
     exported_lights = add_web_lights(bpy.context.scene)

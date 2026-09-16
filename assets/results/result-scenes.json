@@ -1,30 +1,38 @@
 {
-  "text-atmosphere-bedroom": {
-    "source": "text/atmosphere_bedroom/text_atmosphere.blend",
-    "bytes": 16843024,
-    "meshes": 21,
-    "faces_before": 241574,
-    "faces_after": 151720,
-    "meshes_reduced": 6,
+  "text-atmosphere-livingroom": {
+    "source": "text/atmosphere_livingroom/scene(3).blend",
+    "bytes": 29599312,
+    "meshes": 24,
+    "faces_before": 504924,
+    "faces_after": 265256,
+    "meshes_reduced": 12,
     "images_resized": 0,
     "removed_for_cutaway": [
+      "ceiling_01",
       "wall_south_01",
       "wall_south_02",
-      "wall_south_03"
+      "wall_south_03",
+      "wall_west_01",
+      "wall_west_02",
+      "wall_west_03",
+      "wall_west_04"
     ],
-    "materials_simplified": 10,
+    "materials_simplified": 13,
     "lights_exported": 6
   },
   "text-detailed-cafe": {
     "source": "text/detailed_cafe/detailed_cafe.blend",
-    "bytes": 41933724,
-    "meshes": 38,
-    "faces_before": 455841,
-    "faces_after": 385827,
+    "bytes": 41927832,
+    "meshes": 35,
+    "faces_before": 455823,
+    "faces_after": 385809,
     "meshes_reduced": 8,
     "images_resized": 0,
     "removed_for_cutaway": [
       "ceiling_01",
+      "wall_south_01",
+      "wall_south_02",
+      "wall_south_03",
       "wall_west_01"
     ],
     "materials_simplified": 7,
@@ -32,14 +40,17 @@
   },
   "text-detailed-kitchen": {
     "source": "text/detailed_kitchen/detailed_kitchen.blend",
-    "bytes": 43586632,
-    "meshes": 41,
-    "faces_before": 616887,
-    "faces_after": 399659,
+    "bytes": 43580776,
+    "meshes": 38,
+    "faces_before": 616869,
+    "faces_after": 399641,
     "meshes_reduced": 15,
     "images_resized": 0,
     "removed_for_cutaway": [
       "ceiling_01",
+      "wall_south_01",
+      "wall_south_02",
+      "wall_south_03",
       "wall_west_01"
     ],
     "materials_simplified": 7,
@@ -47,14 +58,17 @@
   },
   "text-functional-babyroom": {
     "source": "text/functional_babyroom/text_functional2.blend",
-    "bytes": 21642960,
-    "meshes": 24,
-    "faces_before": 358695,
-    "faces_after": 196370,
+    "bytes": 21637100,
+    "meshes": 21,
+    "faces_before": 358677,
+    "faces_after": 196352,
     "meshes_reduced": 7,
     "images_resized": 0,
     "removed_for_cutaway": [
       "ceiling_01",
+      "wall_south_01",
+      "wall_south_02",
+      "wall_south_03",
       "wall_west_01"
     ],
     "materials_simplified": 10,
@@ -62,7 +76,7 @@
   },
   "text-functional-entertainment-room": {
     "source": "text/functional_entertainment_room/scene.blend",
-    "bytes": 25107156,
+    "bytes": 25107152,
     "meshes": 17,
     "faces_before": 700001,
     "faces_after": 224011,
@@ -77,7 +91,7 @@
   },
   "image-bedroom": {
     "source": "img/bedroom/bedroom.blend",
-    "bytes": 20657384,
+    "bytes": 20657380,
     "meshes": 15,
     "faces_before": 599984,
     "faces_after": 192013,
@@ -92,7 +106,7 @@
   },
   "image-livingroom": {
     "source": "img/livingroom/livingroom.blend",
-    "bytes": 34436160,
+    "bytes": 34435868,
     "meshes": 23,
     "faces_before": 999968,
     "faces_after": 320008,
@@ -103,18 +117,19 @@
       "wall_west_01"
     ],
     "materials_simplified": 1,
-    "lights_exported": 6
+    "lights_exported": 5
   },
   "image-meetingroom": {
     "source": "img/meetingroom/meetingroom.blend",
-    "bytes": 46059536,
-    "meshes": 30,
-    "faces_before": 1299916,
-    "faces_after": 416017,
+    "bytes": 46057376,
+    "meshes": 29,
+    "faces_before": 1299910,
+    "faces_after": 416011,
     "meshes_reduced": 26,
     "images_resized": 26,
     "removed_for_cutaway": [
       "ceiling_01",
+      "wall_south_01",
       "wall_west_01"
     ],
     "materials_simplified": 5,

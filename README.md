@@ -81,7 +81,7 @@ Text-to-Scene 每行展示两个结果，按目录前缀排序：Atmosphere、De
 /Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup --disable-autoexec --python tools/export_result_scenes.py
 ```
 
-`scene/text/atmosphere_livingroom/` 当前只有 `input.txt`，没有 `.blend`，因此该类别尚未显示；其余 5 个 Text 场景和 3 个 Image 场景已完整接入。
+Text-to-Scene 展示 `atmosphere_livingroom` 等 5 个文本生成场景，Image-to-Scene 展示 3 组参考图与重建场景。导出时保留原有开放面，并统一移除南、西两面墙及顶面；灯具附近使用暖色局部光，另配较弱的窗光和内嵌 HDR 环境光。
 
 ## 3D 场景展示
 
