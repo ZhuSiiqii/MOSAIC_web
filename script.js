@@ -85,11 +85,6 @@ function selectStage(tab) {
   document.querySelector('#stage-content').textContent = stage.content;
   document.querySelector('#stage-badge').textContent = stage.badge;
   document.querySelector('#stage-progress').textContent = `Stage 0${index + 1} / 04`;
-  document.querySelectorAll('.hierarchy-tree li').forEach((item, level) => {
-    item.classList.toggle('is-pending', level > index);
-    if (level === index) item.setAttribute('aria-current', 'step');
-    else item.removeAttribute('aria-current');
-  });
   document.dispatchEvent(new CustomEvent('scene-stage-change', { detail: { stage: tab.dataset.stage } }));
 }
 

@@ -19,8 +19,8 @@ python3 -m http.server 8000
 - `script.js`：手机导航、当前模块高亮、四阶段切换、引用复制。
 - `editing.js`：四场景、三编辑方式及前后对比拖拽；`editScenes` 存放场景标识和指令。
 - `assets/edits/`：24 张连续编辑原图的独立副本，保留原始 PNG 画质。
-- `scene-viewer.js`：Layout / Assembled scene 切换、自动旋转、暂停/恢复、重置视角及阶段切换。
-- `assets/scenes/`：四阶段完整场景 GLB（内嵌贴图）、四阶段轻量 Layout 示意 GLB、透明背景预览图和导出统计。
+- `scene-viewer.js`：真实 3D 场景、自动旋转、暂停/恢复、重置视角及阶段切换。
+- `assets/scenes/`：四阶段完整场景 GLB（内嵌贴图）、透明背景预览图和导出统计。
 - `assets/media/`：网页优化后的 Demo 视频及封面、Pipeline 图和 VR 后处理图。
 - `vendor/model-viewer/`：本地打包的 model-viewer 4.3.1，包含上游许可证；运行时无需 CDN。
 - `assets/teaser.jpg`：来自项目 `docs/imgs/teaser.jpg` 的独立副本。
@@ -61,15 +61,9 @@ method: sketch / bbox / language
 
 ## 交互式方法总览
 
-封面后的首个区块 `#interactive` 概括效率、层次化结构、Layout / Asset 解耦和 VR 后处理。总耗时直接引用效率区块中的同一组数据；两条并行路径说明布局规划无需渲染反馈，资产合成独立进行。底部提供碰撞处理、悬浮修正、依赖传播、旋转对齐四种后处理方式的入口。
+封面后保留四阶段交互场景。在其上方以三栏特性卡片介绍：多模态生成与编辑（Language / Image / Sketch / BBox）；高效生成（层次化规划、Layout 与 Asset 解耦并行、无需渲染反馈）；VR 操作友好（碰撞处理、悬浮修正、依赖传播、旋转对齐）。手机端卡片纵向排列。
 
-Layout 与 Assembled scene 两种视图共享四阶段选择。Layout 中的色块是根据当前展示 GLB 的空间包围盒生成的说明性示意，不是在线规划、后端规划过程的录制或额外实验结果；灰蓝、绿色、蓝色、橙色分别对应 Structure、Attached、Primary、Supported。切换视图不会执行渲染或调用生成服务，网页本身仍用 WebGL 展示 3D 模型。
-
-可直接使用仓库内的完整 GLB 重新导出 Layout，无需源 `.blend` 或渲染：
-
-```bash
-/Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup --disable-autoexec --python tools/export_layout_preview.py
-```
+查看器使用原有四阶段完整资产场景，支持旋转、缩放和平移；已移除 Layout 示意切换、层次列表、流程文字和重复的效率数字，完整效率比较仍在 `#efficiency`。
 
 ## 3D 场景展示
 

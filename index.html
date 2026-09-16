@@ -7,10 +7,10 @@
   <meta name="theme-color" content="#f8fafc">
   <title>MOSAIC — Multimodal Scene Authoring in Virtual Reality</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=features-20260916">
+  <script src="script.js?v=features-20260916" defer></script>
   <script src="editing.js" defer></script>
-  <script type="module" src="scene-viewer.js"></script>
+  <script type="module" src="scene-viewer.js?v=features-20260916"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -43,42 +43,47 @@
       <div class="hero-caption">MOSAIC <span>/</span> Multimodal, in-situ scene creation and editing</div>
     </section>
 
-    <section class="section overview-section" id="interactive" aria-labelledby="interactive-title">
+    <section class="section section-tinted" id="interactive" aria-labelledby="interactive-title">
       <div class="container">
-        <div class="section-heading overview-heading"><p class="eyebrow">01 / EFFICIENCY BY DESIGN</p><h2 id="interactive-title">Plan the space.<br><span>Build the details in parallel.</span></h2><p>MOSAIC separates layout planning from asset synthesis. A hierarchical scene graph<br class="desktop-break"> organizes the space without rendered feedback, while 3D assets are generated independently.</p></div>
-        <div class="overview-metrics" aria-label="Reported total generation times">
-          <a href="#efficiency"><strong>4:55</strong><span>Text-to-Scene <small>Total · mm:ss</small></span></a>
-          <a href="#efficiency"><strong>7:57</strong><span>Image-to-Scene <small>Total · mm:ss</small></span></a>
-          <a href="#efficiency"><strong>2.8× / 1.8×</strong><span>Speedup over Codex <small>Text / Image · total time</small></span></a>
+        <div class="section-heading"><p class="eyebrow">01 / COARSE TO FINE, STAGE BY STAGE</p><h2 id="interactive-title">A scene that takes shape progressively.</h2><p>Four cumulative stages bring the scene into VR, from room structure<br class="desktop-break"> to the smallest supported objects.</p></div>
+        <div class="feature-grid" aria-label="MOSAIC key features">
+          <article class="feature-card">
+            <span class="feature-letter" aria-hidden="true">A</span>
+            <h3>Multimodal<br>creation &amp; editing</h3>
+            <p>Generate scenes from language or images. Refine them in VR with language, 3D sketches, and semantic bounding boxes.</p>
+            <ul class="feature-tags" aria-label="Input and editing modalities"><li>Language</li><li>Image</li><li>Sketch</li><li>BBox</li></ul>
+          </article>
+          <article class="feature-card feature-efficiency">
+            <span class="feature-letter" aria-hidden="true">B</span>
+            <h3>Built for<br>efficient generation</h3>
+            <p>Plan hierarchically without rendered feedback. Decouple layout planning from asset synthesis so both can run in parallel.</p>
+            <ul class="feature-tags" aria-label="Efficiency features"><li>Hierarchical planning</li><li>Layout / Asset decoupling</li></ul>
+          </article>
+          <article class="feature-card feature-vr">
+            <span class="feature-letter" aria-hidden="true">C</span>
+            <h3>Easy to refine.<br>Natural in VR.</h3>
+            <p>Keep the focus on creating. Four automatic corrections help keep objects grounded, aligned, and coherent as you edit.</p>
+            <ul class="feature-tags" aria-label="Automatic corrections"><li>Collision handling</li><li>Floating fix</li><li>Dependency propagation</li><li>Rotation alignment</li></ul>
+          </article>
         </div>
-        <div class="overview-explore"><div><span class="small-label">EXPLORE THE REPRESENTATION</span><h3>One layout. Four layers.</h3></div><div class="scene-modes" role="group" aria-label="Scene representation"><button type="button" data-view="layout" aria-pressed="false">Layout</button><button type="button" data-view="assets" aria-pressed="true">Assembled scene</button></div></div>
         <div class="stage-tabs" role="tablist" aria-label="Scene delivery stages">
           <button class="stage-tab" id="tab-structure" role="tab" aria-selected="false" aria-controls="stage-panel" tabindex="-1" data-stage="structure"><span>01</span><div><strong>Structure</strong><small>The space itself</small></div></button>
-          <button class="stage-tab" id="tab-attached" role="tab" aria-selected="false" aria-controls="stage-panel" tabindex="-1" data-stage="attached"><span>02</span><div><strong>Attached</strong><small>Surface attachments</small></div></button>
+          <button class="stage-tab" id="tab-attached" role="tab" aria-selected="false" aria-controls="stage-panel" tabindex="-1" data-stage="attached"><span>02</span><div><strong>Attached</strong><small>Walls &amp; ceiling</small></div></button>
           <button class="stage-tab" id="tab-primary" role="tab" aria-selected="false" aria-controls="stage-panel" tabindex="-1" data-stage="primary"><span>03</span><div><strong>Primary</strong><small>The main objects</small></div></button>
           <button class="stage-tab" id="tab-supported" role="tab" aria-selected="true" aria-controls="stage-panel" data-stage="supported"><span>04</span><div><strong>Supported</strong><small>The finishing details</small></div></button>
         </div>
         <div class="scene-viewer" id="stage-panel" role="tabpanel" aria-labelledby="tab-supported" tabindex="0">
           <div class="viewer-canvas live-scene">
-            <div class="scene-toolbar"><span class="media-label">LIVING ROOM <span class="viewer-label" id="scene-mode-label">/ ASSEMBLED SCENE</span></span><div class="scene-actions"><button id="scene-rotate" type="button" aria-pressed="true">Pause rotation</button><button id="scene-reset" type="button">Reset view</button></div></div>
+            <div class="scene-toolbar"><span class="media-label">LIVING ROOM <span class="viewer-label">/ EXPLORE IN 3D</span></span><div class="scene-actions"><button id="scene-rotate" type="button" aria-pressed="true">Pause rotation</button><button id="scene-reset" type="button">Reset view</button></div></div>
             <model-viewer id="room-model" src="assets/scenes/livingroom-supported.glb" poster="assets/scenes/livingroom-poster.png" alt="An open living room with two walls, parquet flooring, furniture, and individually modeled objects" camera-controls auto-rotate auto-rotate-delay="3000" rotation-per-second="5deg" camera-orbit="140deg 57deg 95%" camera-target="0m 1m 0m" min-camera-orbit="auto 20deg 35%" max-camera-orbit="auto 85deg 200%" shadow-intensity="0.8" shadow-softness="1" exposure="1.1" tone-mapping="aces" environment-image="neutral" touch-action="pan-y" loading="lazy" interaction-prompt="none">
               <div slot="progress-bar" class="scene-loading" id="scene-loading" role="status">Loading 3D scene…</div>
             </model-viewer>
             <div id="scene-error" class="scene-error" role="status" hidden><p>The 3D scene could not be loaded.</p><button id="scene-retry" type="button">Try again</button></div>
             <div class="viewer-bottom"><span class="status-dot"></span><span id="stage-progress">Stage 04 / 04</span><span>Drag to rotate · Scroll to zoom · Right-drag to pan</span></div>
           </div>
-          <aside class="stage-description" aria-live="polite"><span class="small-label">CURRENT STAGE</span><h3 id="stage-title">Supported</h3><p id="stage-description">Smaller objects are placed on supporting surfaces. This final stage delivers the complete, cumulative scene.</p><div class="stage-includes"><span class="small-label">CUMULATIVE CONTENT</span><p id="stage-content">All previous stages + supported objects</p></div><span class="stage-badge" id="stage-badge">04 / Complete scene</span><ol class="hierarchy-tree" aria-label="Cumulative scene hierarchy"><li data-level="0"><i></i><span>Structure<small>Room envelope</small></span></li><li data-level="1"><i></i><span>Attached<small>On walls &amp; ceiling</small></span></li><li data-level="2"><i></i><span>Primary<small>Freestanding furniture</small></span></li><li data-level="3" aria-current="step"><i></i><span>Supported<small>On supporting objects</small></span></li></ol></aside>
+          <aside class="stage-description" aria-live="polite"><span class="small-label">CURRENT STAGE</span><h3 id="stage-title">Supported</h3><p id="stage-description">Smaller objects are placed on supporting surfaces. This final stage delivers the complete, cumulative scene.</p><div class="stage-includes"><span class="small-label">CUMULATIVE CONTENT</span><p id="stage-content">All previous stages + supported objects</p></div><span class="stage-badge" id="stage-badge">04 / Complete scene</span></aside>
         </div>
-        <p class="section-note" id="scene-representation-note">Switch to Layout to compare spatial bounds with the assembled assets. Both views show the same example scene.</p>
-        <div class="overview-flow" aria-label="Layout planning and asset synthesis run independently and merge into a scene">
-          <div class="overview-input"><span class="small-label">TEXT / IMAGE</span><strong>Scene graph</strong><small>Entities · hierarchy · relations</small></div>
-          <div class="overview-branches">
-            <div class="overview-lane layout-lane"><span class="small-label">LAYOUT PLANNING</span><strong>Positions, sizes &amp; relationships</strong><span>Hierarchical reasoning · no rendered feedback</span></div>
-            <div class="overview-lane asset-lane"><span class="small-label">ASSET SYNTHESIS</span><strong>Geometry &amp; appearance</strong><span>Runs in parallel with layout planning</span></div>
-          </div>
-          <div class="overview-output"><span class="small-label">ASSEMBLE &amp; REFINE</span><strong>Editable VR scene</strong><small>Progressive delivery + automatic corrections</small></div>
-        </div>
-        <div class="overview-corrections"><div><span class="small-label">POST-PROCESSING IN VR</span><strong>Keep every edit coherent.</strong></div><a href="#post-processing">Collision handling <span>↗</span></a><a href="#post-processing">Floating fix <span>↗</span></a><a href="#post-processing">Dependency propagation <span>↗</span></a><a href="#post-processing">Rotation alignment <span>↗</span></a></div>
+        <p class="section-note">Explore cumulative scene layers. Two open sides and an open ceiling reveal the interior.</p>
       </div>
     </section>
 
