@@ -30,6 +30,15 @@ SCENES = {
     "image-meetingroom": SOURCE_ROOT / "img" / "meetingroom" / "meetingroom.blend",
 }
 
+CUTAWAYS = {
+    "text-atmosphere-bedroom": (
+        "wall_south_01",
+        "wall_south_02",
+        "wall_south_03",
+    ),
+}
+DEFAULT_CUTAWAY = ("ceiling_01", "wall_west_01")
+
 
 def prepare_materials():
     simplified = 0
@@ -117,7 +126,7 @@ def add_web_lights(scene):
             bpy.data.objects.remove(obj, do_unlink=True)
             continue
         if obj.data.type == "POINT":
-            obj.data.energy = max(0.25, obj.data.energy * 0.0015)
+            obj.data.energy = max(0.2, obj.data.energy * 0.0012)
             obj.data.shadow_soft_size = max(obj.data.shadow_soft_size, 0.35)
             local_lights += 1
 
@@ -129,11 +138,11 @@ def add_web_lights(scene):
         scene.collection.objects.link(obj)
         obj.rotation_euler = Euler(rotation)
 
-    sun("Web warm key", 0.00005, (1.0, 0.88, 0.74), (0.55, -0.35, -0.65))
-    sun("Web cool fill", 0.000025, (0.74, 0.84, 1.0), (0.9, 0.25, 2.4))
+    sun("Web warm key", 0.00004, (1.0, 0.88, 0.74), (0.55, -0.35, -0.65))
+    sun("Web cool fill", 0.00002, (0.74, 0.84, 1.0), (0.9, 0.25, 2.4))
 
     data = bpy.data.lights.new("Web overhead fill", "POINT")
-    data.energy = 0.2
+    data.energy = 0.16
     data.color = (1.0, 0.91, 0.78)
     data.shadow_soft_size = 0.8
     overhead = bpy.data.objects.new("Web overhead fill", data)
@@ -152,7 +161,7 @@ for slug, source in SCENES.items():
     print(f"EXPORTING {slug}", flush=True)
     bpy.ops.wm.open_mainfile(filepath=str(source), load_ui=False)
     removed = []
-    for name in ("ceiling_01", "wall_west_01"):
+    for name in CUTAWAYS.get(slug, DEFAULT_CUTAWAY):
         obj = bpy.data.objects.get(name)
         if obj is not None:
             removed.append(name)

@@ -1,14 +1,16 @@
 {
   "text-atmosphere-bedroom": {
     "source": "text/atmosphere_bedroom/text_atmosphere.blend",
-    "bytes": 16847004,
-    "meshes": 23,
-    "faces_before": 241586,
-    "faces_after": 151732,
+    "bytes": 16843024,
+    "meshes": 21,
+    "faces_before": 241574,
+    "faces_after": 151720,
     "meshes_reduced": 6,
     "images_resized": 0,
     "removed_for_cutaway": [
-      "wall_west_01"
+      "wall_south_01",
+      "wall_south_02",
+      "wall_south_03"
     ],
     "materials_simplified": 10,
     "lights_exported": 6
