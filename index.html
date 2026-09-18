@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#f8fafc">
   <title>MOSAIC — Multimodal Scene Authoring in Virtual Reality</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=result-scenes-20260916">
+  <link rel="stylesheet" href="styles.css?v=palette-20260918">
   <script src="script.js?v=overview-cards-20260916" defer></script>
   <script src="editing.js" defer></script>
   <script type="module" src="scene-viewer.js?v=overview-cards-20260916"></script>
@@ -37,6 +37,7 @@
         <div class="hero-actions">
           <a class="button button-primary" href="#demo"><span aria-hidden="true">▷</span> Watch demo</a>
           <a class="button button-white" href="https://github.com/ZhuSiiqii/MOSAIC" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 1 12l7 7M16 5l7 7-7 7M14 3l-4 18"/></svg> Code</a>
+          <button class="button button-white button-disabled" type="button" disabled><span aria-hidden="true">▤</span> arXiv</button>
           <a class="button button-white" href="#pipeline"><span aria-hidden="true">▧</span> Method</a>
         </div>
         <a class="hero-scroll" href="#interactive">EXPLORE THE PROJECT <span aria-hidden="true">↓</span></a>
@@ -179,7 +180,8 @@
       <p class="section-note">Three source images and their complete 3D scene reconstructions.</p>
     </section>
 
-    <section class="section container" id="editing" aria-labelledby="editing-title">
+    <section class="section section-tinted" id="editing" aria-labelledby="editing-title">
+      <div class="container">
       <div class="section-heading"><p class="eyebrow">07 / CREATE. REFINE. REIMAGINE.</p><h2 id="editing-title">Continuous scene editing</h2><p>Explore successive edits to the same scene, using a sketch, a bounding box,<br class="desktop-break"> or natural language. Drag the divider to compare before and after.</p></div>
       <div class="editing-workspace">
         <aside class="edit-scenes" aria-label="Choose a scene">
@@ -208,6 +210,7 @@
           </div>
           <p class="edit-asset-note" id="edit-asset-note" role="status" hidden></p>
         </div>
+      </div>
       </div>
     </section>
 
